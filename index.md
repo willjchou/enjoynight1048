@@ -1,37 +1,63 @@
-## Welcome to GitHub Pages
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>欢乐都市夜</title>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+</style>
+</head>
+<body>
+<center><img src="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/137404_200801212013321.gif" alt="czKqs.gif" border="0" /></center>
+<!--
+<div>
+	<center>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=145223&amp;auto=1&amp;height=66">
+	</iframe>
+	</center>
+</div>
+  -->
+<div class="autotype" id="autotype">
+	<center>
+	<br>
+	<p>欢乐都市夜</p>
+	<p>苏州交通广播</p>
+	<p>FM104.8</p>
+	<br>
+	</center>
+</div>
 
-You can use the [editor on GitHub](https://github.com/willjchou/enjoynight1048/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/willjchou/enjoynight1048/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<script>
+$.fn.autotype = function() {
+    var $text = $(this);
+    console.log('$text:', $text);
+    var str = $text.html(); //返回被选 元素的内容
+    console.log('str:', str);
+    var index = 0;
+    var x = $text.html('');
+    console.log('x:', x);
+    //$text.html()和$(this).html('')有区别
+    var timer = setInterval(function() {
+        //substr(index, 1) 方法在字符串中抽取从index下标开始的一个的字符
+        var current = str.substr(index, 1);
+        if (current == '<') {
+            //indexOf() 方法返回">"在字符串中首次出现的位置。
+            index = str.indexOf('>', index) + 1;
+        } else {
+            index++;
+        }
+        //console.log(["0到index下标下的字符",str.substring(0, index)],["符号",index & 1 ? '_': '']);
+        //substring() 方法用于提取字符串中介于两个指定下标之间的字符
+        $text.html(str.substring(0, index) + (index & 1 ? '_' : ''));
+        index > $text.html().length + 10 && (index = 0);
+        /*if(index >= str.length){
+        	clearInterval(timer);
+        }*/
+    }, 100);
+};
+$("#autotype").autotype();
+</script>
+</body>
+</html>
