@@ -6,34 +6,40 @@
 	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<style>
+	body {
+		position: relative;
+		min-height: 100%;
+	}
 	.header{
-		height:200px;
+		height:170px;
 		width:100%;
-		position:absolute;
+		position:fixed;
 		top:0;
 		}
-	.mian{
+	.main{
 		width:100%;
-		position:absolute;
-		top:200px;
-		bottom:200px;
+		position:fixed;
+		top:170px;
 		height:auto;
+		text-align: center;
 		}
 	.footer{
-		height:200px;
+		height:150px;
 		width:100%;
-		position:absolute;
+		position:fixed;
 		bottom:0;
+		text-align: center;
 		}
+	.footer p {
+		text-align: center;
+	}
 	</style>
 </head>
 <body>
 <div class="header">
-<center><img src="http://enjoynight.top:8800/enjoynight-web/137404_200801212013321.gif" alt="年华之树" border="0" width="451"/></center>
+	<img src="http://enjoynight.top:8800/enjoynight-web/137404_200801212013321.gif" alt="年华之树" style="max-width:100%;"/>
 </div>
-<div  class="mian" class="autotype" id="autotype">
-	<center>
-	<br>
+<div  class="main" class="autotype" id="autotype">
 	<p>欢乐都市夜</p>
 	<p>苏州交通广播</p>
 	<p>FM 104.8</p>
@@ -44,19 +50,13 @@
 	<p></p>
 	<p></p>
 	<br>
-	</center>
 </div>
 <div class="footer">
-	<center>
-	<p></p>
-	<p></p>
-	<p align="center"><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/about.html" title="关于阿欢">关于阿欢</a><span class="word">　丨　</span><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/getrecord.html">获取录音</a></p>
-	<p align="center"><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/story/index.html">故事</a> 　　丨 　　片头 　　丨 　　节目回听</p>
-	<p></p>
-	<p></p>
-	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://enjoynight.top:8800/nomattersoul.mp3">
-	</iframe>
-	</center>
+	<p><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/about.html" title="关于阿欢">关于阿欢</a><span class="word">　丨　</span><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/getrecord.html">获取录音</a></p>
+	<p><a href="http://xn--fjq06xq0d7pqqu8b.cn:8800/enjoynight-web/story/index.html">故事</a> 　　丨 　　片头 　　丨 　　节目回听</p>
+	<audio controls autoplay loop>
+		<source src="http://enjoynight.top:8800/nomattersoul.mp3" type="audio/mp3">
+	</audio>
 </div>
 
 <script>
@@ -85,7 +85,7 @@ $.fn.autotype = function() {
         /*if(index >= str.length){
         	clearInterval(timer);
         }*/
-    }, 100);
+    }, 300);
 };
 $("#autotype").autotype();
 </script>
